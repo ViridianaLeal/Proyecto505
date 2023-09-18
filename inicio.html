@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <img src="ini.jpg" width="200px" height="200px" alt="">
+    <title>INICIO DE TU CUENTA</title>
+</head>
+<body>
+    <section>
+        <h1>INICIA TU SESIÓN </h1><br>
+<body onload="cargarContactos();checarSesion();">
+    <header></header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            
+            REGISTRO
+          </a>
+ 
+          <div class="d-flex" role="search">
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" id="usuario" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">                 
+                  <li><a href="cliente.html" class="dropdown-item" >Cliente</a></li>
+                  <li><a href="auto.html" class="dropdown-item" >Nombre del usuario</a></li>
+            
+                  <li><button class="dropdown-item" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right p-1"></i>Cerrar Sesión</button></li>
+                </ul>          
+              </div>
+          </div>   
+        </div>
+      
+      </nav>
+    
+
+      <div class="card text-center m-4">
+        <div class="card-header">
+            
+        </div>
+        <div class="card-body">
+            <div class="text-end">
+            <button class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#agregarModal"> <i class="bi bi-person-plus p-1"></i>Agregar Contacto</button>
+
+
+            </div>
+            <table class="table table-hover">
+                <thead class="table-dark">
+                  <tr>
+                    <td>Nombre</td>
+                    <td>Apellido Paterno</td>
+                    <td>Apellido Materno</td>
+                    <td>Telefono</td>
+                    <td>Correo</td>
+                    <td>Editar</td>
+                    <td>Eliminar</td>
+                  </tr>
+                </thead>
+                <tbody id="registros">
+                    
+                </tbody>
+              </table>
+              </header> 
+</body>
+</html>
