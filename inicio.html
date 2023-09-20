@@ -2,66 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <img src="ini.jpg" width="200px" height="200px" alt="">
-    <title>INICIO DE TU CUENTA</title>
+    <title>CRUD CONTACTOS</title>
+    <link rel="shortcut icon" href="assets/img/cecytem.png" type="image/x-icon">
+    <link rel="stylesheet" href="inicio.css">
 </head>
-<body>
-    <section>
-        <h1>INICIA TU SESIÓN </h1><br>
 <body onload="cargarContactos();checarSesion();">
-    <header></header>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            
-            REGISTRO
-          </a>
- 
-          <div class="d-flex" role="search">
-            <div class="dropdown">
-                <button class="btn btn-dark dropdown-toggle" id="usuario" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">                 
-                  <li><a href="cliente.html" class="dropdown-item" >Cliente</a></li>
-                  <li><a href="auto.html" class="dropdown-item" >Nombre del usuario</a></li>
-            
-                  <li><button class="dropdown-item" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right p-1"></i>Cerrar Sesión</button></li>
-                </ul>          
-              </div>
-          </div>   
-        </div>
-      
-      </nav>
-    
+    <header>
+        <h1>PAÑALES ECOLOGICOS</h1>
+    </header>
 
-      <div class="card text-center m-4">
-        <div class="card-header">
-            
-        </div>
-        <div class="card-body">
-            <div class="text-end">
-            <button class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#agregarModal"> <i class="bi bi-person-plus p-1"></i>Agregar Contacto</button>
+    <nav>
+        <ul>
+            <li><a href="cliente.html">Cliente</a></li>
+            <li><a href="auto.html">Auto</a></li>
+            <li><a href="alumno.html">Alumno</a></li>
+            <li><button onclick="cerrarSesion()">Cerrar Sesión</button></li>
+        </ul>
+    </nav>
 
-
+    <main>
+        <section>
+            <h2>CRUD CONTACTOS</h2>
+            <div>
+                <button><i>Agregar Contacto</i></button>
             </div>
-            <table class="table table-hover">
-                <thead class="table-dark">
-                  <tr>
-                    <td>Nombre</td>
-                    <td>Apellido Paterno</td>
-                    <td>Apellido Materno</td>
-                    <td>Telefono</td>
-                    <td>Correo</td>
-                    <td>Editar</td>
-                    <td>Eliminar</td>
-                  </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
                 </thead>
                 <tbody id="registros">
                     
                 </tbody>
-              </table>
-              </header> 
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Derechos de autor © 2023. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal AGREGAR CONTACTO -->
+    <div>
+        <div>
+            <h3>AGREGAR CONTACTO</h3>
+            <button aria-label="Close"></button>
+        </div>
+        <div>
+            <form id="formAgregar">
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Nombre">
+                </div>
+                <div>
+                    <label for="ap">Apellido Paterno</label>
+                    <input type="text" id="ap" placeholder="Apellido Paterno">
+                </div>
+                <div>
+                    <label for="am">Apellido Materno</label>
+                    <input type="text" id="am" placeholder="Apellido Materno">
+                </div>
+                <div>
+                    <label for="tel">Teléfono</label>
+                    <input type="tel" id="telefono" placeholder="Teléfono">
+                </div>
+                <div>
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" placeholder="example@dominio.com">
+                </div>
+            </form>
+        </div>
+        <div>
+            <button><i>Cancelar</i></button>
+            <button onclick="agregarContacto()"><i>Guardar</i></button>
+        </div>
+    </div>
+
+    <!-- Modal EDITAR CONTACTO -->
+    <div>
+        <div>
+            <h3>EDITAR CONTACTO</h3>
+            <button aria-label="Close"></button>
+        </div>
+        <div>
+            <form id="formEditar">
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="enombre" placeholder="Nombre">
+                </div>
+                <div>
+                    <label for="ap">Apellido Paterno</label>
+                    <input type="text" id="eap" placeholder="Apellido Paterno">
+                </div>
+                <div>
+                    <label for="am">Apellido Materno</label>
+                    <input type="text" id="eam" placeholder="Apellido Materno">
+                </div>
+                <div>
+                    <label for="tel">Teléfono</label>
+                    <input type="tel" id="etelefono" placeholder="Teléfono">
+                </div>
+                <div>
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="ecorreo" placeholder="example@dominio.com">
+                </div>
+            </form>
+        </div>
+        <div>
+            <input type="hidden" id="contactoid">
+            <button><i>Cancelar</i></button>
+            <button onclick="editarContacto()"><i>Guardar</i></button>
+        </div>
+    </div>
+
+    <script src="assets/js/appCRUD.js"></script>
 </body>
 </html>
